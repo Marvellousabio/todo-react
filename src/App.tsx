@@ -2,7 +2,7 @@ import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 import FilterButtons from './components/FilterButtons';
 import TodoCounter from './components/TodoCounter';
-import Alert from './components/alert';
+import Alert from './components/Alert';
 
 export default function App() {
   return (
