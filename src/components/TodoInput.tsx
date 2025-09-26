@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../features/todos/todoSlice';
+import { showAlert } from '../features/alert/alertSlice';
 import type { AppDispatch } from '../app/store';
 
 export default function TodoInput() {
@@ -10,7 +11,10 @@ export default function TodoInput() {
   const handleAdd = () => {
     if (text.trim()) {
       dispatch(addTodo(text));
+       dispatch(showAlert({ message: 'Todo added!', type: 'success' }));
       setText('');
+    } else {
+      dispatch(showAlert({ message: 'Please enter a todo!', type: 'error' }));
     }
   };
 
