@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { toggleTodo, deleteTodo } from '../features/todos/todoSlice';
 import type { AppDispatch } from '../app/store';
+import { CheckSquare, X } from 'lucide-react';
+import { showAlert } from '../features/alert/alertSlice';
 
 interface Props {
   id: number;
@@ -13,18 +15,18 @@ export default function TodoItem({ id, text, completed }: Props) {
 
   return (
     <li className="flex justify-between items-center border-b py-2">
+      <CheckSquare className="cursor-pointer" onClick={() => dispatch(toggleTodo(id))}/>
       <span
-        onClick={() => dispatch(toggleTodo(id))}
+        
         className={`cursor-pointer ${completed ? 'line-through text-gray-400' : ''}`}
       >
         {text}
       </span>
-      <button
-        onClick={() => dispatch(deleteTodo(id))}
-        className="text-red-500 ml-4"
-      >
-        ❌
-      </button>
+     
+        <X onClick={() => {dispatch(deleteTodo(id));dispatch(showAlert({ message: 'Todo deleted', type: 'success' }))} }
+        className=" ml-4" />
+        
+      
     </li>
   );
 }

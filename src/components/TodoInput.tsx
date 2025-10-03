@@ -19,12 +19,12 @@ export default function TodoInput() {
   };
 
   return (
-    <div className="flex gap-2 mb-4">
+    <div className="flex gap-2 my-4 mx-auto">
       <input
         value={text}
         onChange={e => setText(e.target.value)}
         placeholder="Add a todo..."
-        className="border p-2 rounded"
+        className="border p-2 rounded w-full"
       />
       <button onClick={handleAdd} className="bg-blue-500 text-white px-4 py-2 rounded">
         Add

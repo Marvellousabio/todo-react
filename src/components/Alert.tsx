@@ -58,7 +58,7 @@ export default function Alert() {
       role="alert"
       className="rounded-md border border-gray-300 bg-white p-4 shadow-sm mb-4"
     >
-      <div className="flex items-start gap-4">
+      <div className="flex items-start gap-2">
         <div className={iconColor}>{icon}</div>
 
         <div className="flex-1">
